@@ -13,7 +13,12 @@ export default {
     return {
       product: {
         id: 1,
-        name: 'jeans',
+        name: 'Джинсы "Манго"',
+        description: 'Синие, зауженные',
+        currentCount: 1,
+        count: 5,
+        image: '',
+        price: 2500,
       },
     };
   },

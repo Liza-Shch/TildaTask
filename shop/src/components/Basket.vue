@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import EventBus from '@/eventbus.js';
 
 export default {
@@ -29,16 +30,10 @@ export default {
     emptyColor: { type: String, require: false, default: '#ffffff' },
     fullColor: { type: String, require: false, default: '#000000' },
   },
-  data() {
-    console.log(this.emptyColor);
-    return {
-      // currentColor: this.$attrs.emptyColor,
-      basket: [],
-    };
-  },
   computed: {
+    ...mapGetters(['BASKET']),
     currentColor() {
-      return this.basket.length > 0 ? this.$attrs.fullColor : this.$attrs.emptyColor;
+      return this.BASKET.length > 0 ? this.$attrs.fullColor : this.$attrs.emptyColor;
     },
   },
   created() {
@@ -46,7 +41,7 @@ export default {
   },
   methods: {
     addProduct(product) {
-      this.basket.push(product.id);
+      this.$store.commit('ADD_BASKET', product);
     },
   },
 };
@@ -54,13 +49,14 @@ export default {
 
 
 <style lang="scss" scoped>
-
 .basket {
     display: flex;
     position: absolute;
     z-index: 1;
-    width: 100px;
-    height: 100px;
+    top: 50px;
+    right: 50px;
+    width: calc(15px + 5vw);
+    height: calc(15px + 5vw);
 
     &__link {
       position: absolute;

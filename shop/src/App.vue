@@ -1,10 +1,6 @@
 <template>
   <div id="app">
     <Basket emptyColor="#ffffff" fullColor="#E44807"/>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
     <router-view/>
   </div>
 </template>
@@ -43,4 +39,5 @@ body {
   height: 100vh;
   width: 100vw;
 }
+
 </style>
