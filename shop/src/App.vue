@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Basket emptyColor="#ffffff" fullColor="#FCB63A"/>
+    <Basket emptyColor="#ffffff" fullColor="#E44807"/>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -17,7 +17,7 @@ export default {
   components: {
     Basket,
   },
-}
+};
 
 </script>
 

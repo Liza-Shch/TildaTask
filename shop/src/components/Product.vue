@@ -8,21 +8,21 @@
 import EventBus from '@/eventbus.js';
 
 export default {
-    name: 'Product',
-    data() {
-        return {
-            product : {
-                id: 1,
-                name: "jeans"
-            },
-        }
+  name: 'Product',
+  data() {
+    return {
+      product: {
+        id: 1,
+        name: 'jeans',
+      },
+    };
+  },
+  methods: {
+    addToBusket() {
+      EventBus.$emit('add-product-to-basket', this.product);
     },
-    methods: {
-        addToBusket() {
-            EventBus.$emit('add-product-to-basket', this.product);
-        }
-    }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -37,5 +37,3 @@ export default {
     }
 }
 </style>
-
-

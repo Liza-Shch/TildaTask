@@ -8,12 +8,12 @@
 
 <script>
 export default {
-    name: "ShopHeader",
-    props: {
-        mainTitle: {type: String, required: true},
-        subTitle: {type: String, required: false}
-    }
-}
+  name: 'ShopHeader',
+  props: {
+    mainTitle: { type: String, required: true },
+    subTitle: { type: String, required: false },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -54,4 +54,3 @@ export default {
     }
 }
 </style>
-

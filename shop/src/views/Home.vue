@@ -2,8 +2,6 @@
   <div>
     <ShopHeader mainTitle="Juicy" subTitle='Не бойся быть ярким!'/>
     <Product />
-    <!-- <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
 </template>
 
@@ -16,7 +14,7 @@ export default {
   name: 'home',
   components: {
     ShopHeader,
-    Product
+    Product,
   },
 };
 </script>
