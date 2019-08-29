@@ -1,20 +1,23 @@
 <template>
   <div>
     <ShopHeader mainTitle="Juicy" subTitle='Не бойся быть ярким!'/>
-    <Product />
+    <ProductList />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import ShopHeader from '@/components/Header.vue';
-import Product from '@/components/Product.vue';
+import ProductList from '@/components/ProductList.vue';
 
 export default {
   name: 'home',
   components: {
     ShopHeader,
-    Product,
+    ProductList,
   },
+  beforeCreate() {
+    this.$store.dispatch('INIT_PRODUCTS')
+  }
 };
 </script>

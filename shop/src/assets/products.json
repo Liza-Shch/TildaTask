@@ -1,0 +1,31 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Джинсы \"Mango\"",
+            "descriptoin": "Синие, зауженные",
+            "price": "2500",
+            "currentCount": "1",
+            "count": "20",
+            "img": ""
+        },
+        {
+            "id": 2,
+            "name": "Свитер \"Banana\"",
+            "descriptoin": "Светлый, хлопок",
+            "price": "3000",
+            "currentCount": "1",
+            "count": "15",
+            "img": ""
+        },
+        {
+            "id": 3,
+            "name": "Куртка \"Sunny\"",
+            "descriptoin": "Красная, с карманами",
+            "price": "6400",
+            "currentCount": "1",
+            "count": "6",
+            "img": ""
+        }
+    ]
+}

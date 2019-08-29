@@ -9,18 +9,28 @@ import EventBus from '@/eventbus.js';
 
 export default {
   name: 'Product',
-  data() {
-    return {
-      product: {
-        id: 1,
-        name: 'Джинсы "Манго"',
-        description: 'Синие, зауженные',
-        currentCount: 1,
-        count: 5,
-        image: '',
-        price: 2500,
-      },
-    };
+  prop: {
+    productID: {type: Number, required: true},
+  },
+  // data() {
+  //   return {
+  //     product: {
+  //       id: 1,
+  //       name: 'Джинсы "Манго"',
+  //       description: 'Синие, зауженные',
+  //       currentCount: 1,
+  //       count: 5,
+  //       image: '',
+  //       price: 2500,
+  //     },
+  //   };
+  // },
+  computed: {
+    product() {
+      const products = this.$store.getters.PRODUCTS;
+      console.log(products);
+      return products.find(product => product.id == this.$attrs.productID);
+    },
   },
   methods: {
     addToBusket() {

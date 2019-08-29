@@ -1,6 +1,6 @@
 <template>
     <div class="product">
-        <div class="product__image" :style="{'background-image': 'url('+ product.image + ')'}">
+        <div class="product__image" :style="{'background-image': 'url(' +  product.img + ')'}">
         </div>
         <div class="product__info">
             <div class="product__name">{{ product.name }}</div>
@@ -20,13 +20,6 @@
 export default {
   name: 'ProductBasket',
   props: {
-    // id: {type: Number, require: true},
-    // name: {type: String, require: true},
-    // description: {type: String, require: true},
-    // price: {type: Number, require: true},
-    // count: {type: Number, require: true},
-    // currentCount: {type: Number, require: false, defaultt: 1}
-    // image: {type: String, require: true}
     productID: { type: Number, require: true },
   },
   computed: {
@@ -37,14 +30,15 @@ export default {
   },
   methods: {
     add() {
-      if (this.product.currentCount + 1 <= this.product.count) {
-        this.product.currentCount += 1;
+      if (+this.product.currentCount + 1 <= +this.product.count) {
+        +this.product.currentCount++;
+        console.log(this.product.currentCount);
       }
     },
 
     remove() {
-      if (this.product.currentCount > 1) {
-        this.product.currentCount -= 1;
+      if (+this.product.currentCount > 1) {
+        +this.product.currentCount--;
       }
     },
 

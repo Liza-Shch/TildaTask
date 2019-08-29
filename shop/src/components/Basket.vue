@@ -41,6 +41,7 @@ export default {
   },
   methods: {
     addProduct(product) {
+      // product.currentCount = 1;
       this.$store.commit('ADD_BASKET', product);
     },
   },

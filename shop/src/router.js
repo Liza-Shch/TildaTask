@@ -18,5 +18,9 @@ export default new Router({
       name: 'basket',
       component: () => import('./views/Basket.vue'),
     },
+    {
+      path: '*',
+      redirect: '/'
+    }
   ],
 });

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import fakeProducts from './assets/products.json';
 
 Vue.use(Vuex);
 
@@ -30,6 +31,8 @@ export default new Vuex.Store({
     },
   },
   actions: {
-
+    INIT_PRODUCTS: (state, payload) => {
+      state.commit('SET_PRODUCTS', fakeProducts.products);
+    }
   },
 });
