@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "Джинсы \"Mango\"",
-            "descriptoin": "Синие, зауженные",
+            "description": "Синие, зауженные",
             "price": "2500",
             "currentCount": "1",
             "count": "20",
@@ -12,7 +12,7 @@
         {
             "id": 2,
             "name": "Свитер \"Banana\"",
-            "descriptoin": "Светлый, хлопок",
+            "description": "Светлый, хлопок",
             "price": "3000",
             "currentCount": "1",
             "count": "15",
@@ -21,8 +21,35 @@
         {
             "id": 3,
             "name": "Куртка \"Sunny\"",
-            "descriptoin": "Красная, с карманами",
+            "description": "Красная, с карманами",
             "price": "6400",
+            "currentCount": "1",
+            "count": "6",
+            "img": ""
+        },
+        {
+            "id": 4,
+            "name": "Джинсы \"Like\"",
+            "description": "Серые, зауженные",
+            "price": "3400",
+            "currentCount": "1",
+            "count": "10",
+            "img": ""
+        },
+        {
+            "id": 5,
+            "name": "Свитер \"Bright\"",
+            "description": "Светлый, хлопок",
+            "price": "5000",
+            "currentCount": "1",
+            "count": "10",
+            "img": ""
+        },
+        {
+            "id": 6,
+            "name": "Жакет \"Shine\"",
+            "description": "Прямой крой, с карманами",
+            "price": "7400",
             "currentCount": "1",
             "count": "6",
             "img": ""

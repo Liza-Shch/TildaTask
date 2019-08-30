@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="product-list" v-for="product in products">
+    <div class="product-list">
+        <div v-for="product in products">
             <Product v-bind:productID="product.id" />
         </div>
     </div>
@@ -16,7 +16,7 @@ export default {
     },
     data() {
         return {
-            count: 3,
+            count: 16,
         }
     },
     computed: {
@@ -33,7 +33,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
-    grid-gap: 20px;
+    grid-gap: 50px;
 }
 </style>
 

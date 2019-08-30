@@ -52,7 +52,7 @@ export default {
 <style lang="scss" scoped>
 .basket {
     display: flex;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     top: 50px;
     right: 50px;
