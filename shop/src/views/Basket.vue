@@ -1,7 +1,10 @@
 <template>
   <div class="basket-container">
-    <ProductListBasket v-if="stages[currentStage] === 'BASKET'" />
-    <div class="basket-container__check" v-if="stages[currentStage] === 'BASKET'">
+    <div class = "basket-container__main">
+      <ProductListBasket v-if="stages[currentStage] === 'BASKET'" />
+      <Checkout v-if="stages[currentStage] === 'CHECKOUT'" />
+    </div>
+    <div class="basket-container__check">
       <Check :stage="currentStage" @nextStage="nextStage"/>
     </div>
   </div>
@@ -10,12 +13,14 @@
 <script>
 import ProductListBasket from '@/components/ProductListBasket.vue';
 import Check from '@/components/Check.vue';
+import Checkout from '@/components/Checkout.vue';
 
 export default {
   name: 'basket',
   components: {
     ProductListBasket,
     Check,
+    Checkout,
   },
   data() {
       return {
@@ -34,7 +39,7 @@ export default {
       if (this.currentStage > 0) {
         this.currentStage--;
       }
-    }
+    },
   }
 };
 </script>
@@ -42,6 +47,10 @@ export default {
 <style lang="scss" scoped>
 .basket-container {
   display: flex;
+
+  &__main {
+    width: 40vw;
+  }
 
   &__check {
     margin-left: 40px;

@@ -10,22 +10,22 @@
 import Product from '@/components/Product.vue';
 
 export default {
-    name: 'ProductList',
-    components: {
-        Product,
+  name: 'ProductList',
+  components: {
+    Product,
+  },
+  data() {
+    return {
+      count: 16,
+    };
+  },
+  computed: {
+    products() {
+      const allProducts = this.$store.getters.PRODUCTS;
+      return allProducts.slice(0, this.count);
     },
-    data() {
-        return {
-            count: 16,
-        }
-    },
-    computed: {
-        products() {
-            const allProducts = this.$store.getters['PRODUCTS']
-            return allProducts.slice(0, this.count);
-        }
-    }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -36,5 +36,3 @@ export default {
     grid-gap: 50px;
 }
 </style>
-
-

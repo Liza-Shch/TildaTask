@@ -23,7 +23,7 @@ export default {
     product() {
       const products = this.$store.getters.PRODUCTS;
       console.log(products);
-      return products.find(product => product.id == this.productID);
+      return products.find(product => product.id === this.productID);
     },
   },
   methods: {

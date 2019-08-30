@@ -31,14 +31,14 @@ export default {
   methods: {
     add() {
       if (+this.product.currentCount + 1 <= +this.product.count) {
-        +this.product.currentCount++;
+        ++this.product.currentCount;
         console.log(this.product.currentCount);
       }
     },
 
     remove() {
       if (+this.product.currentCount > 1) {
-        +this.product.currentCount--;
+        --this.product.currentCount;
       }
     },
 

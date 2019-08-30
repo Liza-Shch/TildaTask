@@ -31,8 +31,8 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    INIT_PRODUCTS: (state, payload) => {
+    INIT_PRODUCTS: (state) => {
       state.commit('SET_PRODUCTS', fakeProducts.products);
-    }
+    },
   },
 });
