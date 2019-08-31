@@ -7,13 +7,13 @@
 
 <script>
 export default {
-    name: 'InputField',
-    props: {
-        label: { type: String, required: true },
-        type: { type: String, required: true },
-        autocomplete: { type: String, required: false, default: 'off' } 
-    }
-}
+  name: 'InputField',
+  props: {
+    label: { type: String, required: true },
+    type: { type: String, required: true },
+    autocomplete: { type: String, required: false, default: 'off' },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -33,5 +33,3 @@ export default {
     }
 }
 </style>
-
-

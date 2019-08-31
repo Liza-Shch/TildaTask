@@ -1,6 +1,6 @@
 <template>
     <div class="product-list">
-        <div v-for="productBasket in BASKET">
+        <div v-for="productBasket in BASKET" :key="productBasket.id">
             <ProductBasket v-bind:productID="productBasket.id"/>
         </div>
     </div>

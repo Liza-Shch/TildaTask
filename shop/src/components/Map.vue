@@ -11,7 +11,9 @@
             </div>
             <Button v-if="pickupID" color="#E44807" text="Выбрать" :action="choosePickup"/>
         </div>
-        <yandex-map :coords="focusCoords" :style="{ 'width': width * 0.6 + 'vw', 'height': height + 'vh'}" :zoom='10' :placemarks="placemarks">
+        <yandex-map :coords="focusCoords"
+        :style="{ 'width': width * 0.6 + 'vw', 'height': height + 'vh'}"
+        :zoom='10' :placemarks="placemarks">
         </yandex-map>
     </div>
 </template>
@@ -21,57 +23,62 @@ import { yandexMap } from 'vue-yandex-maps';
 import Button from '@/components/Button.vue';
 
 export default {
-    name: 'Map',
-    components: {
-        yandexMap,
-        Button,
+  name: 'Map',
+  components: {
+    yandexMap,
+    Button,
+  },
+  props: {
+    focusCoords: {
+      type: Array,
+      required: false,
+      default: () => [55.75370903771494, 37.61981338262558],
     },
-    props: {
-        focusCoords: { type: Array, required: false, default: [55.75370903771494, 37.61981338262558] },
-        width: { type: String, required: false, default: '50' },
-        height: { type: String, required: false, default: '50' },
-        marks: { type: Array, required: false, default: [] },
-    },
-    data() {
-        return {
-            isShown: true,
-            pickupID: null,
-        }
-    },
-    computed: {
-        placemarks() {
-            this.$on('map-was-initialized', this.mapInit);
-            const markers = this.marks.map((mark) => {
-                mark.balloonTemplate = `
+    width: { type: String, required: false, default: '50' },
+    height: { type: String, required: false, default: '50' },
+    marks: { type: Array, required: false, default: () => [] },
+  },
+  data() {
+    return {
+      isShown: true,
+      pickupID: null,
+    };
+  },
+  computed: {
+    placemarks() {
+      this.$on('map-was-initialized', this.mapInit);
+      const markers = this.marks.map((mark) => {
+        const newMark = Object.assign({}, mark);
+        newMark.balloonTemplate = `
                     <div>
-                        <big><b>${ mark.title }</b></big>
-                        <div>${ mark.address}</div>
-                        <b>${ mark.description }</b>
-                    </div>`
-                mark.callbacks = {
-                    click: function(event) {
-                        this.pickupID = mark.id;
-                    }.bind(this)
-                };
-                return mark;
-            });
-            return markers;
-        },
-        pickup() {
-            return this.$store.getters.PICKUPS.find((pickup) => pickup.id == this.pickupID);
-        }
+                        <big><b>${mark.title}</b></big>
+                        <div>${mark.address}</div>
+                        <b>${mark.description}</b>
+                    </div>`;
+        newMark.callbacks = {
+          click: function () {
+            this.pickupID = mark.id;
+          }.bind(this),
+        };
+        return newMark;
+      });
+      return markers;
     },
-    methods: {
-        close() {
-            this.isShown = false;
-            this.$emit('close');
-        },
-        choosePickup() {
-            this.$emit('choosePickup', this.pickupID);
-            this.close();
-        }
-    }
-}
+    pickup() {
+      return this.$store.getters.PICKUPS.find(pickup => +pickup.id === +this.pickupID);
+    },
+  },
+  methods: {
+    close() {
+      this.isShown = false;
+      this.$emit('close');
+    },
+    choosePickup() {
+      this.$emit('choosePickup', this.pickupID);
+      this.close();
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -107,5 +114,3 @@ export default {
     }
 }
 </style>
-
-

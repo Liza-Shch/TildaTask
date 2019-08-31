@@ -1,6 +1,6 @@
 <template>
     <div class="product-list">
-        <div v-for="product in products">
+        <div v-for="product in products" :key="product.id">
             <Product v-bind:productID="product.id" />
         </div>
     </div>

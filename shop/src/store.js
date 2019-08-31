@@ -34,14 +34,14 @@ export default new Vuex.Store({
     },
     SET_PICKUPS: (state, payload) => {
       state.pickups = payload;
-    }
+    },
   },
   actions: {
     INIT_PRODUCTS: (state) => {
       state.commit('SET_PRODUCTS', fakeProducts.products);
     },
     INIT_PICKUPS: (state) => {
-      state.commit('SET_PICKUPS', fakePickups.pickups)
-    }
+      state.commit('SET_PICKUPS', fakePickups.pickups);
+    },
   },
 });

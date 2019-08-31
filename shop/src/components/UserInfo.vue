@@ -11,11 +11,11 @@
 import InputField from '@/components/InputField.vue';
 
 export default {
-    name: 'UserInfo',
-    components: {
-        InputField,
-    }
-}
+  name: 'UserInfo',
+  components: {
+    InputField,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -30,4 +30,3 @@ export default {
     text-align: left;
 }
 </style>
-

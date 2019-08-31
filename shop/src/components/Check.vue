@@ -1,7 +1,7 @@
 <template>
     <div class="check">
-        <Button class="check__button" text='Перейти к оформлению' color='#E44807'
-        :action="goToCheckout"/>
+        <Button class="check__button" text='Перейти к оформлению'
+        color='#E44807' :action="goToCheckout"/>
         <div class="check__total">
             <p class="check__text">Общая стоимость</p>
             <b class="check__price">{{ total }}руб.</b>
@@ -24,9 +24,9 @@ export default {
     total() {
       const basket = this.$store.getters.BASKET;
       let sum = 0;
-      for (const product of basket) {
+      basket.forEach((product) => {
         sum += product.currentCount * product.price;
-      }
+      });
 
       return sum;
     },
