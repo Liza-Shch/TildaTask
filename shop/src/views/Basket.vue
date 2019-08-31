@@ -1,5 +1,6 @@
 <template>
   <div class="basket-container">
+    <a v-if="stages[currentStage] === 'CHECKOUT'" @click="prevStage">В корзину</a>
     <div class = "basket-container__main">
       <ProductListBasket v-if="stages[currentStage] === 'BASKET'" />
       <Checkout v-if="stages[currentStage] === 'CHECKOUT'" />

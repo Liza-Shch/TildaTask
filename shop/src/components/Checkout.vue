@@ -1,16 +1,19 @@
 <template>
     <form class="checkout">
         <UserInfo />
+        <DeliveryInfo />
     </form>
 </template>
 
 <script>
 import UserInfo from '@/components/UserInfo.vue';
+import DeliveryInfo from '@/components/DeliveryInfo.vue';
 
 export default {
     name: 'Checkout',
     components: {
-        UserInfo
+        UserInfo,
+        DeliveryInfo
     },
 }
 </script>
