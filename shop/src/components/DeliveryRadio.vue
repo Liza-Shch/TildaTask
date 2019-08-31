@@ -1,12 +1,12 @@
 <template>
    <div class="delivery-radio">
        <fieldset :id="'delivery' + id">
-        <label for="deliveryRadioButton">
+        <label :for="'deliveryRadioButton' + id">
             <input type="radio" value="courier" :id="'deliveryRadioButton' + id" :name="'delivery' + id"
             @change="courierChecked">
             Доставка курьером
         </label>
-        <label for="pickupRadioButton">
+        <label :for="'pickupRadioButton' + id">
             <input type="radio" value="pickup" :id="'pickupRadioButton' + id" :name="'delivery' + id"
             @change="pickupChecked">
             Самовывоз
