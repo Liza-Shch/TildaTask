@@ -1,37 +1,82 @@
 <template>
     <div class="payment">
-        <h2>Способ оплаты</h2>
-        <fieldset id="payment">
-        <label for="cardRadioButton">
-            <input type="radio" value="card" id="cardRadioButton" name="payment"
-            @change="cardChecked">
-            Оплата онлайн
-        </label>
-        <label for="cashRadioButton">
-            <input type="radio" value="cash" id="cashRadioButton" name="payment">
-            Оплата при получении
-          </label>
-       </fieldset>
+        <PaymentRadio v-if="isAvailableCommonPayment" :id="id" :products="basket" ref="Radio"/>
+        <div v-if="!isAvailableCommonPayment" class="payment__products">
+          <div>{{ msg }}</div>
+          <div v-for="product in basket" :key="+product.id">
+            <PaymentProduct :productID="+product.id" :ref="'PaymentProduct' + product.id"/>
+          </div>
+        </div>
     </div>
 </template>
 
 <script>
+import PaymentRadio from '@/components/PaymentRadio.vue';
+import PaymentProduct from '@/components/PaymentProduct.vue';
+
 export default {
-    name: 'Payment',
-    methods: {
-        cardChecked() {
-            console.log('card')
-        },
-    }
-}
+  name: 'Payment',
+  components: {
+    PaymentRadio,
+    PaymentProduct,
+  },
+  data() {
+    return {
+      id: 0,
+      msg: null,
+    };
+  },
+  computed: {
+    basket() {
+      return this.$store.getters.BASKET;
+    },
+    isAvailableCommonPayment() {
+      const hasCashPayment = this.basket.every(product => product.payment.includes('cash'));
+      const hasCardPayment = this.basket.every(product => product.payment.includes('card'));
+      const res = hasCashPayment || hasCardPayment;
+      if (!res) {
+        this.msg = 'К сожалению, не все товары могут быть оплачены одним способом. Выберите способ оплаты для каждого товара по отдельности.';
+      }
+      return res;
+    },
+  },
+  methods: {
+    submit() {
+      if (this.$refs.Radio) {
+        return this.$refs.Radio.submit();
+      }
+
+      if (!this.isAvailableCommonPayment) {
+        const data = [];
+        this.basket.forEach((product) => {
+          const ref = `PaymentProduct${product.id}`;
+          const payment = this.$refs[ref][0].submit();
+
+          if (!payment) {
+            return null;
+          }
+
+          data.push(payment);
+        });
+
+        if (data.length !== this.basket.length) {
+          return null;
+        }
+
+        return { products: data };
+      }
+      return null;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
     .payment {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
+        &__products {
+            display: grid;
+            grid-template-rows: auto;
+            grid-gap: 2vh;
+        }
     }
 </style>
-
-

@@ -8,7 +8,8 @@
             "currentCount": "1",
             "count": "20",
             "img": "",
-            "delivery": ["courier"]
+            "delivery": ["courier"],
+            "payment": ["card", "cash"]
         },
         {
             "id": 2,
@@ -18,7 +19,8 @@
             "currentCount": "1",
             "count": "15",
             "img": "",
-            "delivery": ["pickup"]
+            "delivery": ["pickup"],
+            "payment": ["card"]
         },
         {
             "id": 3,
@@ -28,7 +30,8 @@
             "currentCount": "1",
             "count": "6",
             "img": "",
-            "delivery": ["courier", "pickup"]
+            "delivery": ["courier", "pickup"],
+            "payment": ["cash"]
         },
         {
             "id": 4,
@@ -38,7 +41,8 @@
             "currentCount": "1",
             "count": "10",
             "img": "",
-            "delivery": ["courier", "pickup"]
+            "delivery": ["courier", "pickup"],
+            "payment": ["card", "cash"]
         },
         {
             "id": 5,
@@ -48,7 +52,8 @@
             "currentCount": "1",
             "count": "10",
             "img": "",
-            "delivery": ["courier"]
+            "delivery": ["courier"],
+            "payment": ["card", "cash"]
         },
         {
             "id": 6,
@@ -58,7 +63,8 @@
             "currentCount": "1",
             "count": "6",
             "img": "",
-            "delivery": ["pickup"]
+            "delivery": ["pickup"],
+            "payment": ["card", "cash"]
         }
     ]
 }

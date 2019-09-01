@@ -1,16 +1,17 @@
 <template>
-    <button class="button" :style="{'background-color': color}" :type="type"
-    @click="action">{{ text }}</button>
+      <button class="button" :style="{'background-color': color}" :type="type"
+      :form="formID" @click="action">{{ text }}</button>
 </template>
 
 <script>
 export default {
   name: 'Button',
   props: {
-    action: { type: Function, required: true },
+    action: { type: Function, required: false, default: null },
     color: { type: String, required: false, default: '#000000' },
     type: { type: String, required: false, default: 'button' },
     text: { type: String, required: true },
+    formID: { type: String, required: false, default: null },
   },
 };
 </script>

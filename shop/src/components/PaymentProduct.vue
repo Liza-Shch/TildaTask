@@ -1,21 +1,21 @@
 <template>
-    <div class="delivery-product">
-        <div class="delivery-product__product">
-            <div class="delivery-product__img"></div>
-            <div class="delivery-product__info">
+    <div class="payment-product">
+        <div class="payment-product__product">
+            <div class="payment-product__img"></div>
+            <div class="payment-product__info">
                 <big><b>{{ product.name }}</b></big>
                 {{ product.description }}
             </div>
         </div>
-        <DeliveryRadio :id="product.id" :products="[ product ]" ref="Radio"/>
+        <PaymentRadio :id="product.id" :products="[ product ]" ref="Radio"/>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'DeliveryProdcut',
+  name: 'PaymentProdcut',
   components: {
-    DeliveryRadio: () => import('@/components/DeliveryRadio.vue'),
+    PaymentRadio: () => import('@/components/PaymentRadio.vue'),
   },
   props: {
     productID: { type: Number, required: true },
@@ -27,14 +27,14 @@ export default {
   },
   methods: {
     submit() {
-      const delivery = this.$refs.Radio.submit();
-      if (!delivery) {
+      const payment = this.$refs.Radio.submit();
+      if (!payment) {
         return null;
       }
 
       return {
         productID: this.product.id,
-        delivery,
+        payment,
       };
     },
   },
@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .delivery-product {
+    .payment-product {
         display: flex;
         flex-direction: column;
         padding: 2vw;

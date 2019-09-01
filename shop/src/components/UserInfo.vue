@@ -1,9 +1,30 @@
 <template>
-    <div class="user-info">
-        <h3>Ваши данные</h3>
-        <InputField type="text" label="ФИО" autocomplete="name" />
-        <InputField type="email" label="Email" autocomplete="email" />
-        <inputField type="tel" label="Телефон" autocomplete="tel" />
+    <div class="user-info" @submit="submit">
+        <InputField
+            type="text"
+            label="ФИО"
+            name="name"
+            autocomplete="name"
+            msgError="Введите корректное ФИО"
+            ref="inputName"
+            placeholder="ФИО"/>
+        <InputField
+            type="email"
+            label="Email"
+            name="email"
+            autocomplete="email"
+            msgError="Введите корректный email"
+            ref="inputEmail"
+            placeholder="Email"/>
+        <inputField
+            type="tel"
+            label="Телефон"
+            name="tel"
+            autocomplete="tel"
+            msgError="Введите номер телефона вида +7 (912) 345-67-89"
+            ref="inputTel"
+            placeholder="Телефон"
+            pattern="[\+]\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"/>
     </div>
 </template>
 
@@ -15,6 +36,23 @@ export default {
   components: {
     InputField,
   },
+  methods: {
+    submit() {
+      const name = this.$refs.inputName.submit();
+      const email = this.$refs.inputEmail.submit();
+      const tel = this.$refs.inputTel.submit();
+
+      if (!(name && email && tel)) {
+        return null;
+      }
+
+      return {
+        name,
+        email,
+        tel,
+      };
+    },
+  },
 };
 </script>
 
@@ -22,8 +60,7 @@ export default {
 .user-info {
     display: grid;
     grid-template-rows: auto;
-    grid-gap: 20px;
-    padding: 30px;
+    grid-gap: 1.5vh;
     background-color: white;
     color: black;
     border-radius: 4px;

@@ -1,20 +1,28 @@
 <template>
    <div class="delivery-radio">
-       <fieldset :id="'delivery' + id">
-        <label :for="'deliveryRadioButton' + id">
-            <input type="radio" value="courier" :id="'deliveryRadioButton' + id" :name="'delivery' + id"
-            @change="courierChecked">
+       <fieldset :id="'delivery' + id" class="delivery-radio__fieldset">
+        <label :for="'deliveryRadioButton' + id" class="delivery-radio__field">
+            <input
+              type="radio"
+              value="courier"
+              :id="'deliveryRadioButton' + id"
+              :name="'delivery' + id"
+              @change="courierChecked" required>
             Доставка курьером
         </label>
         <label :for="'pickupRadioButton' + id">
-            <input type="radio" value="pickup" :id="'pickupRadioButton' + id" :name="'delivery' + id"
-            @change="pickupChecked">
+            <input
+              type="radio"
+              value="pickup"
+              :id="'pickupRadioButton' + id"
+              :name="'delivery' + id"
+              @change="pickupChecked">
             Самовывоз
           </label>
        </fieldset>
         <span v-if="msg">{{ msg }}</span>
-        <Courier v-if="checked=='COURIER' && !msg" />
-        <Pickup v-if="checked=='PICKUP' && !msg" />
+        <Courier v-if="checked=='COURIER' && !msg" ref="Courier"/>
+        <Pickup v-if="checked=='PICKUP' && !msg" ref="Pickup"/>
    </div>
 </template>
 
@@ -30,7 +38,7 @@ export default {
   },
   props: {
     id: { type: Number, required: false, default: 0 },
-    products: { type: Array, required: true }
+    products: { type: Array, required: true },
   },
   data() {
     return {
@@ -58,6 +66,31 @@ export default {
       }
       this.msg = null;
     },
+    submit() {
+      if (this.$refs.Courier) {
+        const courier = this.$refs.Courier.submit();
+        if (!courier) {
+          return null;
+        }
+
+        return {
+          courier,
+        };
+      }
+
+      if (this.$refs.Pickup) {
+        const pickup = this.$refs.Pickup.submit();
+        if (!pickup) {
+          return null;
+        }
+
+        return {
+          pickup,
+        };
+      }
+
+      return null;
+    },
   },
 };
 </script>
@@ -66,6 +99,19 @@ export default {
 .delivery-radio {
   display: grid;
   grid-template-rows: auto;
-  grid-gap: 20px;
+  grid-gap: 2.5vh;
+  width: 100%;
+
+  &__fieldset {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  &__field {
+    margin-bottom: 1.5vh;
+  }
 }
 </style>

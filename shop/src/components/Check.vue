@@ -1,16 +1,23 @@
 <template>
     <div class="check">
-        <Button class="check__button" text='Перейти к оформлению'
-        color='#E44807' :action="goToCheckout"/>
-        <div class="check__total">
-            <p class="check__text">Общая стоимость</p>
-            <b class="check__price">{{ total }}руб.</b>
+        <div v-if="stage === 0">
+          <Button class="check__button" text='Перейти к оформлению'
+          color='#E44807' :action="goToCheckout"/>
+          <div class="check__total">
+              <p class="check__text">Общая стоимость</p>
+              <b class="check__price">{{ total }}руб.</b>
+          </div>
+        </div>
+        <div v-if="stage === 1">
+          <Button class="check__button" text="Оформить"
+          color="#E44807" type="submit" formID="formCheckout" :action="submit"/>
         </div>
     </div>
 </template>
 
 <script>
 import Button from '@/components/Button.vue';
+import EventBus from '@/eventbus.js';
 
 export default {
   name: 'Check',
@@ -32,9 +39,14 @@ export default {
     },
   },
   methods: {
+    check(e) {
+      console.log('click', e.target);
+    },
     goToCheckout() {
       this.$emit('nextStage');
-      console.log('ok');
+    },
+    submit(e) {
+      EventBus.$emit('submit-checkout-form', e);
     },
   },
 };

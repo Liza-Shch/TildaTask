@@ -1,22 +1,46 @@
 <template>
-    <form class="checkout">
-        <UserInfo />
-        <DeliveryInfo />
-        <payment />
+    <form
+      class="checkout" action="#" id="formCheckout"
+      @submit="(e) => { e.preventDefault(); return false; }">
+        <CheckoutSection sectionType="USER_INFO" header="Ваши данные" ref="UserInfo"/>
+        <CheckoutSection sectionType="DELIVERY_INFO" header="Доставка" ref="DeliveryInfo"/>
+        <CheckoutSection sectionType="PAYMENT" header="Оплата" ref="Payment"/>
     </form>
 </template>
 
 <script>
-import UserInfo from '@/components/UserInfo.vue';
-import DeliveryInfo from '@/components/DeliveryInfo.vue';
-import Payment from '@/components/Payment.vue';
+import CheckoutSection from '@/components/CheckoutSection.vue';
+import EventBus from '@/eventbus.js';
 
 export default {
   name: 'Checkout',
   components: {
-    UserInfo,
-    DeliveryInfo,
-    Payment,
+    CheckoutSection,
+  },
+  created() {
+    EventBus.$on('submit-checkout-form', this.submit);
+  },
+  beforeDestroy() {
+    EventBus.$off('submit-checkout-form', this.submit);
+  },
+  methods: {
+    submit() {
+      const user = this.$refs.UserInfo.submit();
+      const delivery = this.$refs.DeliveryInfo.submit();
+      const payment = this.$refs.Payment.submit();
+
+      if (!(user && delivery && payment)) {
+        return null;
+      }
+
+      const data = {
+        user,
+        delivery,
+        payment,
+      };
+
+      console.log(data);
+    },
   },
 };
 </script>
