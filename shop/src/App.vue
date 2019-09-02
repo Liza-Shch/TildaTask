@@ -8,6 +8,9 @@
 <script>
 import Basket from '@/components/Basket.vue';
 
+/**
+ * App - основной компонент приложения
+ */
 export default {
   name: 'App',
   components: {
@@ -22,7 +25,7 @@ export default {
   display: flex;
   justify-content: center;
   position: relative;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'MS Sans Serif', Geneva, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -33,7 +36,7 @@ export default {
   min-height: 100%;
   width: 100%;
   box-sizing: border-box;
-  padding: 100px;
+  padding: calc(10px + 5vw);
 }
 
 body {

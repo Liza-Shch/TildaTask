@@ -8,6 +8,13 @@
 </template>
 
 <script>
+
+/**
+ * CheckoutSection - секция в заполнении данных о заказе
+ * props:
+ * header - текст заголовка
+ * sectionType - тип секции
+ */
 export default {
   name: 'CheckoutSection',
   components: {
@@ -43,7 +50,7 @@ export default {
     .checkout-section {
         display: flex;
         flex-direction: column;
-        padding: 4vw;
+        padding: calc(10px + 4vw);
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
         background-color: white;
         color: black;

@@ -1,7 +1,7 @@
 <template>
     <div v-if="isShown" class="map">
         <button class="map__button-close" @click="close"></button>
-        <div class="map__info" :style="{ 'width': width * 0.4 + 'vw', 'height': height + 'vh'}" >
+        <div class="map__info" >
             <h2>Выбор пункта выдачи</h2>
             <p v-if="!pickupID">Выберите на карте пункт выдачи.</p>
             <div v-if="pickupID" class="map__pickup">
@@ -22,6 +22,14 @@
 import { yandexMap } from 'vue-yandex-maps';
 import Button from '@/components/Button.vue';
 
+/**
+ * Map - карта пунктов самовывоза
+ * props:
+ * focusCoords - координаты фокусировки  центра карты
+ * width - ширина карты без единиц измерения (относительно vw)
+ * height - высота карты без единиц измерения (относительно vh)
+ * marks - массив меток карты (пунктов самовывоза)
+ */
 export default {
   name: 'Map',
   components: {
@@ -85,6 +93,7 @@ export default {
 .map {
     display: flex;
     position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 
     &__info {
         display: flex;
@@ -101,7 +110,7 @@ export default {
         height: 5vh;
         top: 10px;
         right: 10px;
-        background-image: url('../assets/close.svg');
+        background-image: url('../assets/close.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;

@@ -17,6 +17,9 @@
 </template>
 
 <script>
+/**
+ * ProductBasket - товар в корзине на стадии проверки товаров
+ */
 export default {
   name: 'ProductBasket',
   props: {
@@ -54,25 +57,32 @@ export default {
         position: relative;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-gap: 20px;
+        grid-gap: 2vw;
         width: fit-content;
-        justify-content: space-between;
+        justify-items: start;
         align-items: center;
-        padding: 20px;
+        padding: calc(10px + 2vw);
         background-color: white;
         border-radius: 10px;
         color: black;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+
+        @media screen and (max-width: 1224px) {
+            grid-template-columns: calc(40px + 10vw)  auto;
+            width: initial;
+        }
 
         &__image {
-            width: 100px;
-            height: 100px;
+            width: calc(30px + 5vw);
+            height: calc(30px + 5vw);
             background-color: rgba(0, 0, 0, 0.1);
         }
 
         &__info {
             display: grid;
             grid-gap: 10px;
-            width: 150px;
+            min-width: 150px;
+            text-align: left;
         }
 
         &__name {
@@ -88,27 +98,27 @@ export default {
         }
 
         &__button {
-            width: 25px;
-            height: 25px;
+            width: calc(20px + 0.5vw);
+            height: calc(20px + 0.5vw);
             padding: 0;
             border: none;
             background-size: cover;
 
             &_add {
                 margin-right: 10px;
-                background-image: url('../assets/add.svg');
+                background-image: url('../assets/add.png');
             }
 
             &_remove {
                 margin-left: 10px;
-                background-image: url('../assets/minus.svg');
+                background-image: url('../assets/minus.png');
             }
 
             &_delete {
                 position: absolute;
-                top: 20px;
-                right: 20px;
-                background-image: url('../assets/close.svg');
+                top: calc(10px + 0.25vw);
+                right: calc(10px + 0.25vw);
+                background-image: url('../assets/close.png');
             }
         }
     }

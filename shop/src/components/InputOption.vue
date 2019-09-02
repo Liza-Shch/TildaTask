@@ -17,6 +17,14 @@
 <script>
 import InputField from '@/components/InputField.vue';
 
+/**
+ * InputOption - поле ввода с подсказками в виде выпадающего списка
+ * props:
+ * label - надпись
+ * name - название поля
+ * placeholder - подсказка внутри поля ввода
+ * optionsStoreName - название геттера подсказок из хранилища
+ */
 export default {
   name: 'InputOption',
   components: {

@@ -16,6 +16,9 @@
 <script>
 import Map from '@/components/Map.vue';
 
+/**
+ * Pickup - доставка самовывозом
+ */
 export default {
   name: 'Pickup',
   components: {
@@ -77,17 +80,14 @@ export default {
 
         &__button {
           margin: 0;
-          border: 1px solid #9C9C9C;
-          padding: 1vw;
-          margin-bottom: 1vh;
+          padding: 0;
+          margin-bottom: 2vh;
           font-size: 100%;
-          border-radius: 4px;
+          border: 0;
           box-sizing: border-box;
-
-          &:hover {
-            background-color: #9C9C9C;
-            color: white;
-          }
+          background-color: inherit;
+          text-align: left;
+          text-decoration: underline;
         }
     }
 </style>

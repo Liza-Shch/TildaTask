@@ -15,6 +15,9 @@ import DeliveryRadio from '@/components/DeliveryRadio.vue';
 import DeliveryProduct from '@/components/DeliveryProduct.vue';
 import EventBus from '@/eventbus.js';
 
+/**
+ * DeliveryInfo - информация о доставке
+ */
 export default {
   name: 'DeliveryInfo',
   components: {

@@ -3,7 +3,7 @@
         <div class="delivery-product__product">
             <div class="delivery-product__img"></div>
             <div class="delivery-product__info">
-                <big><b>{{ product.name }}</b></big>
+                <b>{{ product.name }}</b>
                 {{ product.description }}
             </div>
         </div>
@@ -12,6 +12,12 @@
 </template>
 
 <script>
+
+/**
+ * DeliveryProduct - Выбор доставки для каждого продукта в отдельности
+ * props:
+ * productID - id продукта
+ */
 export default {
   name: 'DeliveryProdcut',
   components: {
@@ -45,9 +51,9 @@ export default {
     .delivery-product {
         display: flex;
         flex-direction: column;
-        padding: 2vw;
+        padding: calc(10px + 2vw);
         border-radius: 4px;
-        border: 1px solid #9C9C9C;
+        background-color: rgb(240, 240, 240);
 
         &:hover {
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);

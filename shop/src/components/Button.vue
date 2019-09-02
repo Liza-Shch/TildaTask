@@ -4,6 +4,16 @@
 </template>
 
 <script>
+
+/**
+ * Button - primary кнопка
+ * props:
+ * actoin - коллбек кнопки
+ * color - цвет кнопки
+ * type - тип кнопки
+ * text - надпись на кнопке
+ * formID - ID формы, к которой кнопка привязана
+ */
 export default {
   name: 'Button',
   props: {
@@ -30,5 +40,9 @@ export default {
     border-radius: 4px;
     border: none;
     font-size: larger;
+
+    &:hover {
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    }
 }
 </style>

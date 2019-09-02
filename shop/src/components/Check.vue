@@ -2,7 +2,7 @@
     <div class="check">
         <div v-if="stage === 0">
           <Button class="check__button" text='Перейти к оформлению'
-          color='#E44807' :action="goToCheckout"/>
+          color='#E44807' :action="goToNextStage"/>
           <div class="check__total">
               <p class="check__text">Общая стоимость</p>
               <b class="check__price">{{ total }}руб.</b>
@@ -11,6 +11,10 @@
         <div v-if="stage === 1">
           <Button class="check__button" text="Оформить"
           color="#E44807" type="submit" formID="formCheckout" :action="submit"/>
+          <div class="check__total">
+              <p class="check__text">Общая стоимость</p>
+              <b class="check__price">{{ total }}руб.</b>
+          </div>
         </div>
     </div>
 </template>
@@ -19,6 +23,11 @@
 import Button from '@/components/Button.vue';
 import EventBus from '@/eventbus.js';
 
+/**
+ * Check - чек
+ * props:
+ * stage - стадия заказа
+ */
 export default {
   name: 'Check',
   components: {
@@ -42,11 +51,15 @@ export default {
     check(e) {
       console.log('click', e.target);
     },
-    goToCheckout() {
+    goToNextStage() {
       this.$emit('nextStage');
     },
     submit(e) {
       EventBus.$emit('submit-checkout-form', e);
+      if (this.$store.getters.ORDER) {
+        this.goToNextStage();
+        this.$store.commit('SET_BASKET', []);
+      }
     },
   },
 };
@@ -61,8 +74,11 @@ export default {
     padding: 20px;
     color: black;
     height: fit-content;
+    min-width: 20vw;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 
     &__button {
+      width: 100%;
     }
 
     &__total {

@@ -11,6 +11,9 @@
 import EventBus from '@/eventbus.js';
 import Button from '@/components/Button.vue';
 
+/**
+ * Product - товар в листинге товаров магазина
+ */
 export default {
   name: 'Product',
   components: {
@@ -38,7 +41,7 @@ export default {
 .product {
     display: flex;
     flex-direction: column;
-    border-radius: 5px;
+    border-radius: 4px;
     text-align: center;
 
     &__img {

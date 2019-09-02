@@ -14,6 +14,9 @@
 import PaymentRadio from '@/components/PaymentRadio.vue';
 import PaymentProduct from '@/components/PaymentProduct.vue';
 
+/**
+ * Payment - секция оплаты
+ */
 export default {
   name: 'Payment',
   components: {

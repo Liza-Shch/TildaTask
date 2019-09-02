@@ -30,6 +30,12 @@
 import Courier from '@/components/Courier.vue';
 import Pickup from '@/components/Pickup.vue';
 
+/**
+ * DeliveryRadio - выбор способа доставки
+ * props:
+ * id - id продукта или 0, если доставка выбирается для всего заказа
+ * products - продукты, для которых выбирается доставка
+ */
 export default {
   name: 'DeliveryRadio',
   components: {

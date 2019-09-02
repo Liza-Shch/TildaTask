@@ -9,6 +9,9 @@
 <script>
 import Product from '@/components/Product.vue';
 
+/**
+ * ProductList - список товаров в магазине
+ */
 export default {
   name: 'ProductList',
   components: {
@@ -34,5 +37,9 @@ export default {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     grid-gap: 50px;
+
+    @media screen and (max-width: 900px) {
+      grid-template-columns: 1fr 1fr;
+    }
 }
 </style>

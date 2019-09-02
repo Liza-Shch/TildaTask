@@ -12,6 +12,9 @@
 import CheckoutSection from '@/components/CheckoutSection.vue';
 import EventBus from '@/eventbus.js';
 
+/**
+ * Checkout - стадия заполнения данных о заказе
+ */
 export default {
   name: 'Checkout',
   components: {
@@ -37,9 +40,11 @@ export default {
         user,
         delivery,
         payment,
+        products: this.$store.getters.BASKET,
       };
 
-      console.log(data);
+      this.$store.commit('SET_ORDER', data);
+      return data;
     },
   },
 };
@@ -48,7 +53,7 @@ export default {
 <style lang="scss" scoped>
 .checkout {
     display: grid;
-    grid-gap: 40px;
+    grid-gap: 5vh;
     grid-template-rows: auto;
 
     &__user-info {

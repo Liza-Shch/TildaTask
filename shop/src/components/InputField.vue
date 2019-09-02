@@ -15,6 +15,19 @@
 </template>
 
 <script>
+/**
+ * InputField - поле ввода
+ * props:
+ * label - надпись
+ * type - тип ввода
+ * name - название поля
+ * autocomplete - тип автозаполнения
+ * required - признак обязательного поля
+ * msgError - сообщение об ошибке при некорректном вводе
+ * placeholder - подсказка внутри поля ввода
+ * pattern - паттерн вводимых данных
+ * action - коллбек при вводе символа
+ */
 export default {
   name: 'InputField',
   props: {

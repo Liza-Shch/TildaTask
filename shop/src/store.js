@@ -24,9 +24,7 @@ export default new Vuex.Store({
     cityOptions: [],
     streetOptions: [],
     houseOptions: [],
-    city: null,
-    street: null,
-    house: null,
+    order: null,
   },
   getters: {
     PRODUCTS: state => state.products,
@@ -38,6 +36,7 @@ export default new Vuex.Store({
     CITY: state => state.city,
     STREET: state => state.street,
     HOUSE: state => state.house,
+    ORDER: state => state.order,
   },
   mutations: {
     SET_PRODUCTS: (state, payload) => {
@@ -69,6 +68,9 @@ export default new Vuex.Store({
     },
     SET_CITY: (state, payload) => {
       state.city = payload;
+    },
+    SET_ORDER: (state, payload) => {
+      state.order = payload;
     },
   },
   actions: {

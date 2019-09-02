@@ -21,16 +21,19 @@
             label="Телефон"
             name="tel"
             autocomplete="tel"
-            msgError="Введите номер телефона вида +7 (912) 345-67-89"
+            msgError="Введите номер телефона вида +79123456789"
             ref="inputTel"
             placeholder="Телефон"
-            pattern="[\+]\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"/>
+            pattern="[\+]\d{11}"/>
     </div>
 </template>
 
 <script>
 import InputField from '@/components/InputField.vue';
 
+/**
+ * UserInfo - секция информации о покупателе при оформлении покупки
+ */
 export default {
   name: 'UserInfo',
   components: {

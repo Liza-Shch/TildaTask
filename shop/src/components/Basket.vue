@@ -21,19 +21,27 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
 import EventBus from '@/eventbus.js';
 
+/**
+ * Basket - значок корзины
+ * Импортится в основной компонент
+ * props:
+ * emptyColor - цвет иконки пустой корзины
+ * fullColor - цвет иконки заполненной корзины
+ */
 export default {
   name: 'Basket',
-  proprs: {
+  props: {
     emptyColor: { type: String, require: false, default: '#ffffff' },
     fullColor: { type: String, require: false, default: '#000000' },
   },
   computed: {
-    ...mapGetters(['BASKET']),
+    basket() {
+      return this.$store.getters.BASKET;
+    },
     currentColor() {
-      return this.BASKET.length > 0 ? this.$attrs.fullColor : this.$attrs.emptyColor;
+      return this.basket.length > 0 ? this.fullColor : this.emptyColor;
     },
   },
   created() {
@@ -41,7 +49,10 @@ export default {
   },
   methods: {
     addProduct(product) {
-      // product.currentCount = 1;
+      const alreadyIn = this.basket.find(_product => +_product.id === +product.id);
+      if (alreadyIn) {
+        return;
+      }
       this.$store.commit('ADD_BASKET', product);
     },
   },
@@ -54,8 +65,8 @@ export default {
     display: flex;
     position: fixed;
     z-index: 1;
-    top: 50px;
-    right: 50px;
+    top: calc(5px + 2.5vw);
+    right: calc(5px + 2.5vw);
     width: calc(15px + 5vw);
     height: calc(15px + 5vw);
 

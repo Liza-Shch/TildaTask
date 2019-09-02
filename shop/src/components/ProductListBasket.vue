@@ -10,6 +10,9 @@
 import { mapGetters } from 'vuex';
 import ProductBasket from '@/components/ProductBasket.vue';
 
+/**
+ * ProductListBasket - список товаров в корзине на этапе проверки товаров
+ */
 export default {
   name: 'ProductListBasket',
   components: {

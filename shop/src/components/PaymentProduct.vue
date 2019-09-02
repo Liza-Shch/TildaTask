@@ -12,6 +12,9 @@
 </template>
 
 <script>
+/**
+ * PaymentProduct - выбор оплаты для каждого товара по отдельности
+ */
 export default {
   name: 'PaymentProdcut',
   components: {
@@ -47,7 +50,7 @@ export default {
         flex-direction: column;
         padding: 2vw;
         border-radius: 4px;
-        border: 1px solid #9C9C9C;
+        background-color: rgb(240, 240, 240);
 
         &:hover {
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);

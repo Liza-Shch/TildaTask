@@ -17,6 +17,12 @@
 </template>
 
 <script>
+/**
+ * PaymentRadio - выбор оплаты товара
+ * props:
+ * id - id продукта или 0, если оплата выбирается для всего заказа
+ * products - продукты, для которых выбирается оплата
+ */
 export default {
   name: 'PaymentRadio',
   data() {

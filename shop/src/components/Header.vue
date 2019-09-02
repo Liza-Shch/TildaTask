@@ -7,6 +7,9 @@
 </template>
 
 <script>
+/**
+ * ShopHeader - привествующий блок
+ */
 export default {
   name: 'ShopHeader',
   props: {
@@ -17,6 +20,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Satisfy&display=swap');
+
 .header {
     display: flex;
     flex-direction: column;
@@ -28,11 +33,11 @@ export default {
         text-align: left;
         width: fit-content;
         height: fit-content;
-        font-family: 'Satisfy, Helvetica';
         padding: 0;
         margin: 0;
 
         &_main {
+            font-family: 'Satisfy', serif;
             font-size: calc(10px + 20vw);
         }
 

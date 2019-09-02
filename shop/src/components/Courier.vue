@@ -27,6 +27,9 @@
 <script>
 import InputOption from '@/components/InputOption.vue';
 
+/**
+ * Courier - доставка курьером
+ */
 export default {
   name: 'Courier',
   components: {
