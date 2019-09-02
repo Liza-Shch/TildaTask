@@ -1,0 +1,70 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Джинсы \"Mango\"",
+            "description": "Синие, зауженные",
+            "price": "2500",
+            "currentCount": "1",
+            "count": "20",
+            "img": "",
+            "delivery": ["courier"],
+            "payment": ["card", "cash"]
+        },
+        {
+            "id": 2,
+            "name": "Свитер \"Banana\"",
+            "description": "Светлый, хлопок",
+            "price": "3000",
+            "currentCount": "1",
+            "count": "15",
+            "img": "",
+            "delivery": ["pickup"],
+            "payment": ["card"]
+        },
+        {
+            "id": 3,
+            "name": "Куртка \"Sunny\"",
+            "description": "Красная, с карманами",
+            "price": "6400",
+            "currentCount": "1",
+            "count": "6",
+            "img": "",
+            "delivery": ["courier", "pickup"],
+            "payment": ["cash"]
+        },
+        {
+            "id": 4,
+            "name": "Джинсы \"Like\"",
+            "description": "Серые, зауженные",
+            "price": "3400",
+            "currentCount": "1",
+            "count": "10",
+            "img": "",
+            "delivery": ["courier", "pickup"],
+            "payment": ["card", "cash"]
+        },
+        {
+            "id": 5,
+            "name": "Свитер \"Bright\"",
+            "description": "Светлый, хлопок",
+            "price": "5000",
+            "currentCount": "1",
+            "count": "10",
+            "img": "",
+            "delivery": ["courier"],
+            "payment": ["card", "cash"]
+        },
+        {
+            "id": 6,
+            "name": "Жакет \"Shine\"",
+            "description": "Прямой крой, с карманами",
+            "price": "7400",
+            "currentCount": "1",
+            "count": "6",
+            "img": "",
+            "delivery": ["pickup"],
+            "payment": ["card", "cash"]
+        }
+    ]
+}
