@@ -15,3 +15,5 @@
 + HTML5
 + Yandex Maps API (для отображения пунктов выдачи заказа)
 + DADATA API Address (для подсказок при вводе адреса доставки)
+## Деплой
+http://grouchy-cry.surge.sh/
