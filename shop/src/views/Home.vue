@@ -1,22 +1,30 @@
 <template>
   <div>
-    <ShopHeader mainTitle="Juicy" subTitle='Не бойся быть ярким!'/>
-    <Product />
-    <!-- <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <ShopHeader mainTitle="Juicy" subTitle='Будь ярче!'/>
+    <ProductList />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import ShopHeader from '@/components/Header.vue';
-import Product from '@/components/Product.vue';
+import ProductList from '@/components/ProductList.vue';
 
+/**
+ * Home - вьюшка, открывающаяся по пути '/'
+ * Содержит компоненты приветствующей страницы и списка товаров
+ */
 export default {
   name: 'home',
   components: {
     ShopHeader,
-    Product
+    ProductList,
   },
+  /**
+   * Инициирует список товаров
+   */
+  beforeCreate() {
+    this.$store.dispatch('INIT_PRODUCTS')
+  }
 };
 </script>

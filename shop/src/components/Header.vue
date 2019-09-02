@@ -7,32 +7,37 @@
 </template>
 
 <script>
+/**
+ * ShopHeader - привествующий блок
+ */
 export default {
-    name: "ShopHeader",
-    props: {
-        mainTitle: {type: String, required: true},
-        subTitle: {type: String, required: false}
-    }
-}
+  name: 'ShopHeader',
+  props: {
+    mainTitle: { type: String, required: true },
+    subTitle: { type: String, required: false },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Satisfy&display=swap');
+
 .header {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 100px);
     position: relative;
 
     &__title {
         text-align: left;
         width: fit-content;
         height: fit-content;
-        font-family: 'Satisfy, Helvetica';
         padding: 0;
         margin: 0;
 
         &_main {
+            font-family: 'Satisfy', serif;
             font-size: calc(10px + 20vw);
         }
 
@@ -54,4 +59,3 @@ export default {
     }
 }
 </style>
-

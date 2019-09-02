@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <Basket emptyColor="#ffffff" fullColor="#FCB63A"/>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
+    <Basket emptyColor="#ffffff" fullColor="#E44807"/>
     <router-view/>
   </div>
 </template>
@@ -12,19 +8,24 @@
 <script>
 import Basket from '@/components/Basket.vue';
 
+/**
+ * App - основной компонент приложения
+ */
 export default {
   name: 'App',
   components: {
     Basket,
-  },
-}
+  }
+};
 
 </script>
 
 <style lang="scss">
 #app {
+  display: flex;
+  justify-content: center;
   position: relative;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'MS Sans Serif', Geneva, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -32,10 +33,10 @@ export default {
   background-color: #FCB63A;
   padding: 0;
   margin: 0;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   box-sizing: border-box;
-  padding: 100px;
+  padding: calc(10px + 5vw);
 }
 
 body {
@@ -43,4 +44,5 @@ body {
   height: 100vh;
   width: 100vw;
 }
+
 </style>
